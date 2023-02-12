@@ -1,0 +1,21 @@
+<form action="javascript:void(0);" method="get">
+    <!-- First name: <input type="text" name="fname" /> -->
+    : <input type="text" name="lname" id = "input" />
+    <input id="demo" type="submit" value="submit" onclick="myFunction();" />
+    1<input id="test" type="submit" value="submmmit" onclick="myFunction();" />
+    <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="float-left submit-button" >Home</button>
+  </form>
+
+  <script>
+    function myFunction() { 
+        let input = document.getElementById('input').value;
+        input = input.split(' ');
+        for (let i = 0; i < input.length; i++) 
+        {
+            alert(input[i]);
+        }
+        
+        
+        window.location.href = "https://jable.tv/videos/"+input[1]+"/";
+    }
+    </script>
