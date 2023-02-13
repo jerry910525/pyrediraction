@@ -1,21 +1,51 @@
 <form action="javascript:void(0);" method="get">
     <!-- First name: <input type="text" name="fname" /> -->
     : <input type="text" name="lname" id = "input" />
-    <input id="demo" type="submit" value="submit" onclick="myFunction();" />
-    1<input id="test" type="submit" value="submmmit" onclick="myFunction();" />
-    <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="float-left submit-button" >Home</button>
+    <input id="demo" type="submit" value="parse" onclick="myFunction();" />
+    <!-- 1<input id="test" type="submit" value="submmmit" onclick="myFunction();" />
+    <button onclick="location.href = 'www.yoursite.com';" id="myButton" class="float-left submit-button" >Home</button> -->
   </form>
 
   <script>
-    function myFunction() { 
+    function myFunction() 
+    { 
         let input = document.getElementById('input').value;
-        input = input.split(' ');
-        for (let i = 0; i < input.length; i++) 
+        // input = input.split(' ');
+        const myRe = /\w+-\d+/gm;
+        let  myArray = input.match(myRe);
+        let btns = new Array(myArray.length);
+        
+        for (let i = 0; i < myArray.length; i++) 
         {
-            alert(input[i]);
-        }
-        
-        
-        window.location.href = "https://jable.tv/videos/"+input[1]+"/";
+            // alert("int");
+            btns[i] =  document.createElement("button");
+            btns[i].innerHTML = myArray[i];
+            btns[i].onclick = function () {
+
+            window.location.href = "https://jable.tv/videos/"+myArray[i]+"/";
+
+};
+
+            
+            document.body.appendChild( btns[i]);
+        }          
+                
+        // window.location.href = "https://jable.tv/videos/"+myArray[0]+"/";
     }
+
+    // function myFunction() { 
+    //     let input = document.getElementById('input').value;
+    //     // input = input.split(' ');
+    //     const myRe = /\w+-\d+/gm;
+    //     let  myArray = input.match(myRe);
+    //     let btn = document.createElement("button");
+    //     btn.innerHTML = "Click Me";
+    //     document.body.appendChild(btn);
+    //     for (let i = 0; i < myArray.length; i++) 
+    //     {
+    //         alert(myArray[i]);
+    //     }          
+                
+        // window.location.href = "https://jable.tv/videos/"+myArray[0]+"/";
+    
     </script>
